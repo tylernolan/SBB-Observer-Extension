@@ -1,0 +1,1 @@
+document.getElementById('submitBtn').onclick = function() {submitConfig();};

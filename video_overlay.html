@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Viewer Page</title>
+    <style>
+        .fullBoard{
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .hand1{
+          position: absolute;
+          top: 90%;
+          right: 59%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .hand2{
+          position: absolute;
+          top: 90%;
+          right: 50.1%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .hand3{
+          position: absolute;
+          top: 90%;
+          right: 42%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .hand4{
+          position: absolute;
+          top: 90%;
+          right: 33%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot1{
+          position: absolute;
+          top: 51%;
+          right: 59%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot2{
+          position: absolute;
+          top: 51%;
+          right: 50.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot3{
+          position: absolute;
+          top: 51%;
+          right: 42%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot4{
+          position: absolute;
+          top: 51%;
+          right: 33%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot5{
+          position: absolute;
+          top: 68%;
+          right: 55%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot6{
+          position: absolute;
+          top: 68%;
+          right: 46.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .slot7{
+          position: absolute;
+          top: 68%;
+          right: 38%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .treasure1{
+          position: absolute;
+          top: 53%;
+          right: 74%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 6%;
+          height: 10%;
+        }
+        .treasure2{
+          position: absolute;
+          top: 53%;
+          right: 67.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 6%;
+          height: 10%;
+        }
+        .treasure3{
+          position: absolute;
+          top: 65%;
+          right: 71%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 6%;
+          height: 10%;
+        }
+        .shop0{
+          position: absolute;
+          top: 23%;
+          right: 74.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop1{
+          position: absolute;
+          top: 23%;
+          right: 66%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop2{
+          position: absolute;
+          top: 23%;
+          right: 57.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop3{
+          position: absolute;
+          top: 23%;
+          right: 49%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop4{
+          position: absolute;
+          top: 23%;
+          right: 40%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop5{
+          position: absolute;
+          top: 23%;
+          right: 31.5%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .shop6{
+          position: absolute;
+          top: 23%;
+          right: 23%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 7%;
+          height: 14%;
+        }
+        .playerHero{
+          position: absolute;
+          top: 58%;
+          right: 19%;
+          background-color: hsla(0, 0%, 0%, 0.0);
+          width: 11%;
+          height: 26%;
+        }
+        .treasureTooltip{
+          display: inline-block;
+          position: absolute;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          width: 100%;
+          height: 100%;
+        }
+        .tooltip {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: hsla(0, 19%, 19%, 0.0);
+          display: inline-block;
+        }
+        /* Tooltip text */
+        .tooltiptext  {
+          visibility: hidden;
+          background-color: black;
+          color: #fff;
+          text-align: center;
+          padding: 6px 3px;
+          border-radius: 6px;
+
+          /* Position the tooltip text - see examples below! */
+          position: absolute;
+          z-index: 1;
+        }
+        .toptooltiptext{
+          visibility: hidden;
+          background-color: black;
+          color: #fff;
+          text-align: center;
+          padding: 6px 3px;
+          border-radius: 6px;
+          top: -170%;
+          /* Position the tooltip text - see examples below! */
+          position: absolute;
+          z-index: 1;
+        }
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+        .tooltip:hover .toptooltiptext {
+          visibility: visible;
+        }
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .treasureTooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .oppCard:hover .tooltiptext {
+          visibility: visible;
+        }
+        .opponent:hover .tooltiptext {
+          visibility: visible;
+        }
+        .opponent{
+          flex: 0 0 auto;
+          border: 1px solid black;
+        }
+        .opponentContainer{
+           display: flex;
+           flex-wrap: wrap;
+           color: #fff;
+           flex-direction: column;
+           position: absolute;
+           width:10%;
+           right: 80%;
+           top: 5%;
+           background-color: hsla(0, 0%, 0%, 0.3);
+        }
+        .oppCard {
+          color: #fff;
+          background-color: hsla(0, 0%, 0%, 0.4);
+
+          padding:0 15px;
+          border: 1px solid black;
+        }
+        .sidepanel  {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          width: 0;
+
+          position: fixed;
+          z-index: 1;
+          height: 50%;
+          top: 5%;
+          left: 1;
+          background-color: #3ffe5e3;
+          overflow-x: hidden;
+          transition: 0.5s;
+        }
+    </style>
+</head>
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; position:absolute; width:100%; height:100%;">
+    <div id="app" class="full-height"></div>
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="viewer.js" type="text/javascript"></script>
+    <div class="fullBoard" style="" id="fullBoard">
+        <div class="shop0">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip0">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop1">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip1">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop2">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip2">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop3">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip3">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop4">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip4">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop5">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip5">
+
+                </div>
+            </div>
+        </div>
+        <div class="shop6">
+            <div class="tooltip">
+                <div class="tooltiptext" id="sboardTooltip6">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slot1">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip1">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot2">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip2">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot3">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip3">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot4">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip4">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot5">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip5">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot6">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip6">
+
+                </div>
+            </div>
+        </div>
+        <div class="slot7">
+            <div class="tooltip">
+                <div class="tooltiptext" id="boardTooltip7">
+
+                </div>
+            </div>
+        </div>
+        <div class="treasure1">
+            <div class="treasureTooltip">
+                <div class="tooltiptext" id="treasureTooltip1">
+
+                </div>
+            </div>
+        </div>
+        <div class="treasure2">
+            <div class="treasureTooltip">
+                <div class="tooltiptext" id="treasureTooltip2">
+
+                </div>
+            </div>
+        </div>
+        <div class="treasure3">
+            <div class="treasureTooltip">
+                <div class="tooltiptext" id="treasureTooltip3">
+
+                </div>
+            </div>
+        </div>
+        <div class="hand1">
+            <div class="tooltip">
+                <div class="toptooltiptext" id="handTooltip1">
+
+                </div>
+            </div>
+        </div>
+        <div class="hand2">
+            <div class="tooltip">
+                <div class="toptooltiptext" id="handTooltip2">
+
+                </div>
+            </div>
+        </div>
+        <div class="hand3">
+            <div class="tooltip">
+                <div class="toptooltiptext" id="handTooltip3">
+
+                </div>
+            </div>
+        </div>
+        <div class="hand4">
+            <div class="tooltip">
+                <div class="toptooltiptext" id="handTooltip4">
+
+                </div>
+            </div>
+        </div>
+        <div class="playerHero">
+            <div class="tooltip">
+                <div class="tooltiptext" id="playerHeroTooltip">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="opponentContainer" id="oppc">
+        </div>
+</div>
+
+    <script src="interval.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+const interval = setInterval( function(){loadBoard();}, 2000);
